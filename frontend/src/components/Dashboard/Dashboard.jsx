@@ -34,6 +34,7 @@ export default class Dashboard extends Component {
         this.addSkill = this.addSkill.bind(this);
         this.closeModalHandler = this.closeModalHandler.bind(this);
         this.openModalHandler = this.openModalHandler.bind(this);
+        this.changeProjectVisibility = this.changeProjectVisibility.bind(this);
         this.fetchUser();
     }
 
@@ -51,17 +52,21 @@ export default class Dashboard extends Component {
         }).then((response) => {
             console.log(response.data);
             this.id = response.data._id;
+            // this.userUrl = "http://localhost:8000/api/user/" + this.id;
             this.userUrl = "https://mighty-oasis-90906.herokuapp.com/api/user/" + this.id;
-            console.log(response.data)
+            // console.log(response.data)
 
             let username = response.data.username ? response.data.username : "Anonymous";
             let description = response.data.description;
             let skills = response.data.skills;
             let projects = response.data.projects
 
-            axios.get("https://mighty-oasis-90906.herokuapp.com/api/chat", {
+            var url = "https://mighty-oasis-90906.herokuapp.com/api/chat";
+            // var url = "http://localhost:8000/api/chat";
+            axios.get(url, {
                 headers : { "x-access-token": this.token }
             }).then((response) =>  {
+                console.log("load messages");
                 console.log(response.data);
                 this.setState({
                     username: username,
@@ -71,6 +76,8 @@ export default class Dashboard extends Component {
                     /**/
                     messages : response.data,
                 });
+            }).catch((err) => {
+                console.log(err);
             })
         });
     }
@@ -92,6 +99,21 @@ export default class Dashboard extends Component {
                     });
             });
         }
+    }
+
+    changeProjectVisibility(project) {
+        console.log(project);
+        let newProjects = this.state.projects.map(p => {
+            if (p === project) {
+                console.log("detect equality!")
+                let newProject = Object.assign({}, project);
+                newProject.status = newProject.status ^ 1;
+                return newProject;
+            } else {
+                return p;
+            }
+        });
+        this.setState({projects: newProjects});
     }
 
     addSkill(newSkill) {
@@ -168,7 +190,7 @@ export default class Dashboard extends Component {
                 <Navbar/>
                 <Container className="dashboard">
                         <Grid stackable relaxed columns={3}>
-                            <Grid.Column width={5}>
+                            <Grid.Column computer={5} mobile={16}>
                             <Card
                                 centered
                                 raised={this.state.editing}
@@ -199,14 +221,14 @@ export default class Dashboard extends Component {
                                 </Card.Content>
                             </Card> 
                             </Grid.Column>
-                            <Grid.Column width={4}>
+                            <Grid.Column computer={4} mobile={16}>
                                 <SkillFeed skills={this.state.skills} addSkill={this.addSkill} />
                             </Grid.Column>
-                            <Grid.Column width={7}>
+                            <Grid.Column computer={7} mobile={16}>
                                 <MessageFeed events={this.state.messages} />
                             </Grid.Column>
                         </Grid>
-                    <ProjectFeed style={{marginTop: '2em'}} projects={this.state.projects} openModalHandler={this.openModalHandler}/>
+                    <ProjectFeed style={{marginTop: '2em'}} projects={this.state.projects} visibilityHandler={this.changeProjectVisibility} openModalHandler={this.openModalHandler}/>
                 </Container>
                 <PostModal toOpen={this.state.toOpen} closeModalHandler={this.closeModalHandler}/>
             </div>

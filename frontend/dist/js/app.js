@@ -12652,24 +12652,6 @@ var _main2 = _interopRequireDefault(_main);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var socket_url = 'http://10.180.131.152:8000';
-var socket = (0, _socket2.default)(socket_url);
-var token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhMzBkZTkwNmEzZDUyMDAyMTE2ZTUzOCIsImlhdCI6MTUxMzE1MjE1MywiZXhwIjoxNTEzMjM4NTUzfQ.VnQkGp94oIepvZFFovYh7AQC3xHs3pHi91cuzHCdxBo';
-function sentUserToken(token) {
-    console.log("sending token!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-    socket.emit("user token", localStorage.getItem("jwtToken"));
-}
-
-function subscribeToRefresh() {
-    console.log("subscribing to !!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-    socket.on('refresh messages', function () {
-        console.log("I'm asked to refresh!");
-    });
-}
-
-sentUserToken();
-subscribeToRefresh();
-
 _reactDom2.default.render(_react2.default.createElement(
     _reactRouterDom.BrowserRouter,
     null,
@@ -51600,7 +51582,7 @@ var Home = function (_Component) {
                         _react2.default.createElement(
                             'div',
                             { className: 'info' },
-                            _react2.default.createElement('div', { className: 'stick' }),
+                            _react2.default.createElement('div', { className: 'stick-top' }),
                             _react2.default.createElement(
                                 'p',
                                 { className: 'footer-title' },
@@ -51611,7 +51593,7 @@ var Home = function (_Component) {
                                 { className: 'footer-body' },
                                 this.state.msg.description
                             ),
-                            _react2.default.createElement('div', { className: 'stick' })
+                            _react2.default.createElement('div', { className: 'stick-bottom' })
                         )
                     ),
                     _react2.default.createElement(
@@ -71896,7 +71878,7 @@ exports = module.exports = __webpack_require__(29)(undefined);
 
 
 // module
-exports.push([module.i, ".Home {\n  text-align: center;\n  border: 100px;\n  color: #6C7A89;\n  text-align: center;\n  position: absolute;\n  top: 20%;\n  left: 48%;\n  -webkit-transform: translateX(-50%);\n          transform: translateX(-50%); }\n  .Home .logo {\n    color: white;\n    font-size: 90px;\n    font-family: verdana;\n    font-weight: lighter; }\n  .Home .title {\n    color: white;\n    font-size: 20px;\n    font-family: verdana;\n    font-weight: lighter; }\n  .Home .info {\n    margin: 0 auto;\n    -webkit-transition: all 3s ease;\n    transition: all 3s ease; }\n    .Home .info .stick {\n      border-bottom: 2px solid rgba(255, 255, 255, 0.3);\n      padding-top: 30px;\n      margin-bottom: 30px;\n      width: 600px; }\n    .Home .info .footer-title {\n      color: rgba(255, 255, 255, 0.6);\n      font-size: 20px; }\n    .Home .info .footer-body {\n      color: rgba(255, 255, 255, 0.6);\n      padding-top: 10px; }\n  .Home .myInput {\n    margin: 30px auto; }\n    .Home .myInput .ui.button:hover {\n      background-color: white;\n      -webkit-box-shadow: 0 1px 3px rgba(255, 255, 255, 0.12), 0 2px 2px rgba(255, 255, 255, 0.24);\n              box-shadow: 0 1px 3px rgba(255, 255, 255, 0.12), 0 2px 2px rgba(255, 255, 255, 0.24); }\n\n.myTriangle {\n  color: white; }\n\n.continue {\n  position: absolute;\n  bottom: 0%;\n  right: 2%; }\n\n.continue-text {\n  float: left;\n  color: white;\n  font-size: 20px;\n  font-family: verdana;\n  font-weight: lighter; }\n\n.background {\n  height: 100vh;\n  background-color: #6C7A89; }\n", ""]);
+exports.push([module.i, ".Home {\n  text-align: center;\n  border: 100px;\n  color: #6C7A89;\n  text-align: center;\n  position: absolute;\n  top: 20%;\n  left: 48%;\n  -webkit-transform: translateX(-50%);\n          transform: translateX(-50%); }\n  .Home .logo {\n    color: white;\n    font-size: 90px;\n    font-family: verdana;\n    font-weight: lighter; }\n  .Home .title {\n    color: white;\n    font-size: 20px;\n    font-family: verdana;\n    font-weight: lighter; }\n  .Home .info {\n    margin: 0 auto;\n    -webkit-transition: all 3s ease;\n    transition: all 3s ease; }\n    .Home .info .stick-top {\n      border-bottom: 2px solid rgba(255, 255, 255, 0.3);\n      padding-top: 30px;\n      width: 600px;\n      margin: 30px auto; }\n    .Home .info .stick-bottom {\n      border-bottom: 2px solid rgba(255, 255, 255, 0.3);\n      padding-top: 30px;\n      width: 600px;\n      margin: 30px auto; }\n    .Home .info .footer-title {\n      color: rgba(255, 255, 255, 0.6);\n      font-size: 20px; }\n    .Home .info .footer-body {\n      color: rgba(255, 255, 255, 0.6);\n      padding-top: 10px; }\n  .Home .myInput {\n    margin: 30px auto; }\n    .Home .myInput .ui.button:hover {\n      background-color: white;\n      -webkit-box-shadow: 0 1px 3px rgba(255, 255, 255, 0.12), 0 2px 2px rgba(255, 255, 255, 0.24);\n              box-shadow: 0 1px 3px rgba(255, 255, 255, 0.12), 0 2px 2px rgba(255, 255, 255, 0.24); }\n\n.myTriangle {\n  color: white; }\n\n.continue {\n  position: absolute;\n  bottom: 0%;\n  right: 2%; }\n\n.continue-text {\n  float: left;\n  color: white;\n  font-size: 20px;\n  font-family: verdana;\n  font-weight: lighter; }\n\n.background {\n  height: 100vh;\n  background-color: #6C7A89; }\n", ""]);
 
 // exports
 
@@ -72135,8 +72117,8 @@ var Register = function (_Component) {
                                     'Sign Up'
                                 )
                             ),
-                            _react2.default.createElement(_semanticUiReact.Input, { icon: 'mail', iconPosition: 'left', placeholder: 'Email', onChange: this.onChangeEmail }),
-                            _react2.default.createElement(_semanticUiReact.Input, { type: 'password', icon: 'protect', iconPosition: 'left', placeholder: 'Password', onChange: this.onChangePassword }),
+                            _react2.default.createElement(_semanticUiReact.Input, { className: 'auth-info', icon: 'mail', iconPosition: 'left', placeholder: 'Email', onChange: this.onChangeEmail }),
+                            _react2.default.createElement(_semanticUiReact.Input, { className: 'auth-info', type: 'password', icon: 'protect', iconPosition: 'left', placeholder: 'Password', onChange: this.onChangePassword }),
                             _react2.default.createElement(
                                 'p',
                                 null,
@@ -72153,10 +72135,10 @@ var Register = function (_Component) {
                                 'Already have an account? Sign in ',
                                 _react2.default.createElement(
                                     _reactRouterDom.Link,
-                                    { to: '/login' },
+                                    { id: 'login', to: '/login' },
                                     'here'
                                 ),
-                                ' ! '
+                                '!'
                             )
                         )
                     )
@@ -72179,7 +72161,7 @@ exports = module.exports = __webpack_require__(29)(undefined);
 
 
 // module
-exports.push([module.i, ".Login, .Register {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%); }\n  .Login .ui.card, .Register .ui.card {\n    background-color: #6C7A89 !important;\n    padding: 50px 20px;\n    width: 300px; }\n    .Login .ui.card .content, .Register .ui.card .content {\n      color: white !important;\n      text-align: center; }\n      .Login .ui.card .content a, .Register .ui.card .content a {\n        color: white; }\n    .Login .ui.card .header, .Register .ui.card .header {\n      text-align: center;\n      font-weight: 200 !important; }\n      .Login .ui.card .header .icon, .Register .ui.card .header .icon {\n        color: white !important; }\n      .Login .ui.card .header *, .Register .ui.card .header * {\n        margin: auto;\n        padding: 0;\n        display: inline-block !important; }\n    .Login .ui.card .ui.input, .Register .ui.card .ui.input {\n      margin-top: 20px;\n      color: grey; }\n  .Login .myInput, .Register .myInput {\n    width: 200px; }\n  .Login .mySubmit, .Register .mySubmit {\n    margin: auto !important; }\n", ""]);
+exports.push([module.i, ".Login, .Register {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%); }\n  .Login .ui.card, .Register .ui.card {\n    background-color: #6C7A89 !important;\n    padding: 50px 20px;\n    width: 300px; }\n    .Login .ui.card .content, .Register .ui.card .content {\n      color: white !important;\n      text-align: center; }\n      .Login .ui.card .content a, .Login .ui.card .content #login, .Login .ui.card .content #register, .Register .ui.card .content a, .Register .ui.card .content #login, .Register .ui.card .content #register {\n        color: white !important; }\n      .Login .ui.card .content .auth-info, .Register .ui.card .content .auth-info {\n        width: 100%; }\n    .Login .ui.card .header, .Register .ui.card .header {\n      text-align: center;\n      font-weight: 200 !important; }\n      .Login .ui.card .header .icon, .Register .ui.card .header .icon {\n        color: white !important; }\n      .Login .ui.card .header *, .Register .ui.card .header * {\n        margin: auto;\n        padding: 0;\n        display: inline-block !important; }\n    .Login .ui.card .ui.input, .Register .ui.card .ui.input {\n      margin-top: 20px;\n      color: grey; }\n  .Login .myInput, .Register .myInput {\n    width: 200px; }\n  .Login .mySubmit, .Register .mySubmit {\n    margin: auto !important; }\n", ""]);
 
 // exports
 
@@ -72224,7 +72206,7 @@ exports = module.exports = __webpack_require__(29)(undefined);
 
 
 // module
-exports.push([module.i, ".navbar {\n  background-color: #6C7A89 !important;\n  height: 60px;\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  z-index: 100;\n  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.24);\n          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.24); }\n\n.ui.input {\n  color: white;\n  font-size: 1.1em; }\n\n.ui.menu .item > .input input:focus {\n  color: white; }\n\n.ui.menu:not(.vertical) .right.item, .ui.menu:not(.vertical) .right.menu {\n  margin-top: 5px;\n  margin-right: 24px; }\n\n.myLogo {\n  color: white;\n  font-size: 32px;\n  font-weight: 500;\n  line-height: 26px;\n  margin-top: 14px;\n  margin-left: 24px; }\n\n.myInput {\n  margin-left: 50px;\n  color: white;\n  outline: none;\n  padding: 6px 10px 6px 10px;\n  width: 400px; }\n\n.myPlus {\n  color: white;\n  margin-top: 15px !important;\n  margin-right: 14px !important; }\n\n.myImage {\n  height: 43px;\n  width: 43px;\n  vertical-align: middle; }\n\n.ui.secondary.menu {\n  -webkit-box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15) !important;\n          box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15) !important; }\n", ""]);
+exports.push([module.i, ".navbar {\n  background-color: #6C7A89 !important;\n  height: 60px;\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  z-index: 100;\n  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.24);\n          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.24); }\n\n.ui.input {\n  color: white;\n  font-size: 1.1em; }\n\n.ui.menu .item > .input input:focus {\n  color: white; }\n\n.ui.menu:not(.vertical) .right.item, .ui.menu:not(.vertical) .right.menu {\n  margin-top: 5px;\n  margin-right: 24px; }\n\n.myLogo {\n  color: white;\n  font-size: 32px;\n  font-weight: 500;\n  line-height: 26px;\n  margin-top: 14px;\n  margin-left: 24px; }\n\n.myInput {\n  margin-left: 50px;\n  color: white;\n  outline: none;\n  padding: 6px 10px 6px 10px;\n  max-width: 400px; }\n\n.myPlus {\n  color: white;\n  margin-top: 15px !important;\n  margin-right: 14px !important; }\n\n.myImage {\n  height: 43px;\n  width: 43px;\n  vertical-align: middle; }\n\n.ui.secondary.menu {\n  -webkit-box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15) !important;\n          box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15) !important; }\n", ""]);
 
 // exports
 
@@ -72800,8 +72782,8 @@ var Login = function (_Component) {
                                     'Sign In'
                                 )
                             ),
-                            _react2.default.createElement(_semanticUiReact.Input, { icon: 'mail', iconPosition: 'left', placeholder: 'Email', onChange: this.onChangeEmail }),
-                            _react2.default.createElement(_semanticUiReact.Input, { type: 'password', icon: 'protect', iconPosition: 'left', placeholder: 'Password', onChange: this.onChangePassword }),
+                            _react2.default.createElement(_semanticUiReact.Input, { className: 'auth-info', icon: 'mail', iconPosition: 'left', placeholder: 'Email', onChange: this.onChangeEmail }),
+                            _react2.default.createElement(_semanticUiReact.Input, { className: 'auth-info', type: 'password', icon: 'protect', iconPosition: 'left', placeholder: 'Password', onChange: this.onChangePassword }),
                             _react2.default.createElement(
                                 'p',
                                 null,
@@ -72818,10 +72800,10 @@ var Login = function (_Component) {
                                 'No account? Register ',
                                 _react2.default.createElement(
                                     _reactRouterDom.Link,
-                                    { to: '/register' },
+                                    { id: 'register', to: '/register' },
                                     'here'
                                 ),
-                                ' ! '
+                                '!'
                             )
                         )
                     )
@@ -73017,6 +72999,7 @@ var Dashboard = function (_Component) {
         _this.addSkill = _this.addSkill.bind(_this);
         _this.closeModalHandler = _this.closeModalHandler.bind(_this);
         _this.openModalHandler = _this.openModalHandler.bind(_this);
+        _this.changeProjectVisibility = _this.changeProjectVisibility.bind(_this);
         _this.fetchUser();
         return _this;
     }
@@ -73040,17 +73023,21 @@ var Dashboard = function (_Component) {
             }).then(function (response) {
                 console.log(response.data);
                 _this2.id = response.data._id;
+                // this.userUrl = "http://localhost:8000/api/user/" + this.id;
                 _this2.userUrl = "https://mighty-oasis-90906.herokuapp.com/api/user/" + _this2.id;
-                console.log(response.data);
+                // console.log(response.data)
 
                 var username = response.data.username ? response.data.username : "Anonymous";
                 var description = response.data.description;
                 var skills = response.data.skills;
                 var projects = response.data.projects;
 
-                _axios2.default.get("https://mighty-oasis-90906.herokuapp.com/api/chat", {
+                var url = "https://mighty-oasis-90906.herokuapp.com/api/chat";
+                // var url = "http://localhost:8000/api/chat";
+                _axios2.default.get(url, {
                     headers: { "x-access-token": _this2.token }
                 }).then(function (response) {
+                    console.log("load messages");
                     console.log(response.data);
                     _this2.setState({
                         username: username,
@@ -73060,6 +73047,8 @@ var Dashboard = function (_Component) {
                         /**/
                         messages: response.data
                     });
+                }).catch(function (err) {
+                    console.log(err);
                 });
             });
         }
@@ -73084,6 +73073,22 @@ var Dashboard = function (_Component) {
                     });
                 });
             }
+        }
+    }, {
+        key: 'changeProjectVisibility',
+        value: function changeProjectVisibility(project) {
+            console.log(project);
+            var newProjects = this.state.projects.map(function (p) {
+                if (p === project) {
+                    console.log("detect equality!");
+                    var newProject = Object.assign({}, project);
+                    newProject.status = newProject.status ^ 1;
+                    return newProject;
+                } else {
+                    return p;
+                }
+            });
+            this.setState({ projects: newProjects });
         }
     }, {
         key: 'addSkill',
@@ -73184,7 +73189,7 @@ var Dashboard = function (_Component) {
                         { stackable: true, relaxed: true, columns: 3 },
                         _react2.default.createElement(
                             _semanticUiReact.Grid.Column,
-                            { width: 5 },
+                            { computer: 5, mobile: 16 },
                             _react2.default.createElement(
                                 _semanticUiReact.Card,
                                 {
@@ -73229,16 +73234,16 @@ var Dashboard = function (_Component) {
                         ),
                         _react2.default.createElement(
                             _semanticUiReact.Grid.Column,
-                            { width: 4 },
+                            { computer: 4, mobile: 16 },
                             _react2.default.createElement(_SkillFeed2.default, { skills: this.state.skills, addSkill: this.addSkill })
                         ),
                         _react2.default.createElement(
                             _semanticUiReact.Grid.Column,
-                            { width: 7 },
+                            { computer: 7, mobile: 16 },
                             _react2.default.createElement(_MessageFeed2.default, { events: this.state.messages })
                         )
                     ),
-                    _react2.default.createElement(_ProjectFeed2.default, { style: { marginTop: '2em' }, projects: this.state.projects, openModalHandler: this.openModalHandler })
+                    _react2.default.createElement(_ProjectFeed2.default, { style: { marginTop: '2em' }, projects: this.state.projects, visibilityHandler: this.changeProjectVisibility, openModalHandler: this.openModalHandler })
                 ),
                 _react2.default.createElement(_PostModal2.default, { toOpen: this.state.toOpen, closeModalHandler: this.closeModalHandler })
             );
@@ -73272,18 +73277,18 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var MessageFeed = function MessageFeed(_ref) {
     var events = _ref.events;
 
-    var feed = void 0;
+    var feed = void 0,
+        feeds = [];
     if (events) {
-        var msgs;
-        events.forEach(function (c) {
-            console.log(c);
-            c.forEach(function (m) {
-                console.log(m.sender);
-                console.log(m.body);
-                msgs.push({ "meta": "LL", "summary": "Let me join!" });
-            });
+        Object.keys(events).forEach(function (k) {
+            if (events[k].length <= 1 || !events[k][1]) return;
+            var project_name = events[k][0];
+            var username = events[k][1].sender.username || "unknown";
+            var content = events[k][1].body || "Didn't say anything";
+            feeds.push({ 'meta': username + ' for ' + project_name, 'summary': content });
         });
-        feed = _react2.default.createElement(_semanticUiReact.Feed, { events: [{ "meta": "LL", "summary": "Let me join!" }] });
+
+        feed = _react2.default.createElement(_semanticUiReact.Feed, { events: feeds });
     } else {
         feed = _react2.default.createElement(_semanticUiReact.Message, {
             header: 'No messages yet :)',
@@ -73341,12 +73346,14 @@ var ProjectFeed = function ProjectFeed(_ref) {
         feed = projects.map(function (project) {
             console.log(project);
             var tags = project.tags.map(function (tag, idx_t) {
+                console.log(project._id);
                 return _react2.default.createElement(
                     _semanticUiReact.Label,
-                    { key: project._id + '' + idx_t, basic: true },
+                    { key: project.name + project._id + idx_t, basic: true },
                     tag.name
                 );
             });
+            console.log(project.status);
             return _react2.default.createElement(
                 _semanticUiReact.Grid.Column,
                 { key: project._id, style: { width: 'auto' } },
@@ -73361,13 +73368,26 @@ var ProjectFeed = function ProjectFeed(_ref) {
                         _react2.default.createElement(
                             _semanticUiReact.Card.Header,
                             null,
-                            project.name,
-                            _react2.default.createElement(_semanticUiReact.Icon, { className: 'hide', name: 'hide' })
+                            _react2.default.createElement(_semanticUiReact.Icon, {
+                                className: 'visibility',
+                                name: project.status ? 'hide' : 'unhide',
+                                onClick: function onClick(e) {
+                                    return visibilityHandler(project);
+                                } }),
+                            _react2.default.createElement(
+                                'span',
+                                { className: project.status ? 'h' : 's' },
+                                project.name
+                            )
                         ),
                         _react2.default.createElement(
                             _semanticUiReact.Card.Description,
                             null,
-                            project.description
+                            _react2.default.createElement(
+                                'span',
+                                { className: project.status ? 'h' : 's' },
+                                project.description
+                            )
                         )
                     ),
                     _react2.default.createElement(
@@ -73451,7 +73471,7 @@ exports = module.exports = __webpack_require__(29)(undefined);
 
 
 // module
-exports.push([module.i, ".my-projects .row {\n  overflow: auto;\n  -ms-flex-wrap: nowrap;\n      flex-wrap: nowrap; }\n\n.my-projects .card .hide {\n  text-align: right;\n  position: absolute;\n  top: 20px;\n  right: 20px;\n  color: grey; }\n  .my-projects .card .hide:hover {\n    color: darkred !important; }\n\n.my-projects .card .ui.label {\n  margin: 0 3px 6px 3px;\n  height: 30px;\n  width: 80%;\n  text-align: center;\n  background-color: white;\n  color: black;\n  border-radius: 0.5vw;\n  border-color: black;\n  overflow: hidden; }\n", ""]);
+exports.push([module.i, ".my-projects .row {\n  overflow: auto;\n  -ms-flex-wrap: nowrap;\n      flex-wrap: nowrap; }\n\n.my-projects .card .visibility {\n  text-align: right;\n  float: right;\n  color: grey; }\n  .my-projects .card .visibility:hover.hide {\n    color: crimson !important; }\n  .my-projects .card .visibility:hover.unhide {\n    color: green !important; }\n\n.my-projects .card span {\n  margin: 0; }\n\n.my-projects .card .h {\n  color: black; }\n\n.my-projects .card .s {\n  color: grey; }\n\n.my-projects .card .ui.label {\n  margin: 0 3px 6px 3px;\n  height: 30px;\n  width: 80%;\n  text-align: center;\n  background-color: white;\n  color: black;\n  border-radius: 0.5vw;\n  border-color: black;\n  overflow: hidden; }\n", ""]);
 
 // exports
 
@@ -74465,14 +74485,15 @@ var ModalView = function (_Component) {
 			});
 
 			var to = this.state.selected.creator._id;
-			var data = { 'content': value };
+			var data = { 'content': value, 'projectId': this.state.selected._id };
 
-			// var baseURL = 'http://localhost:8000/api';
+			// var baseURL = 'http://localhost:8000/api'
 			var baseURL = 'https://mighty-oasis-90906.herokuapp.com/api';
 			var url = baseURL + '/chat/new/' + to;
 
 			instance.post(url, data).then(function (response) {
 				console.log("Create message success");
+				console.log(response);
 				var conversationId = response.data.conversationId;
 				messageSent(conversationId, to);
 			}).catch(function (error) {
@@ -74681,7 +74702,7 @@ exports = module.exports = __webpack_require__(29)(undefined);
 
 
 // module
-exports.push([module.i, "body {\n  margin: 0; }\n\n.ui.button:hover {\n  -webkit-transform: scale(1.007);\n          transform: scale(1.007);\n  background-color: #6C7A89;\n  color: white;\n  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }\n\n.ui.label {\n  background-color: #6C7A89;\n  color: white;\n  border-radius: 0.5vw;\n  border-color: white;\n  border-width: 0.1vw; }\n\n.bg-grey {\n  background-color: #6C7A89 !important; }\n\n.header {\n  height: 30%; }\n  .header span {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    margin: 3%;\n    color: white; }\n  .header .extra {\n    /*background-color: red;*/\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column; }\n    .header .extra .labels .meta {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center; }\n    .header .extra .meta {\n      font-size: 1vw;\n      color: white;\n      opacity: .5; }\n    .header .extra .labels {\n      margin: 0.5%; }\n\n.content .description {\n  margin: 2%; }\n  .content .description p {\n    color: white; }\n\n.content .skills {\n  margin: 2%; }\n\n.ui.form {\n  margin: 2% 12% 2% 12%; }\n\n.default-modal .actions {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center; }\n\n.default-modal #button-join {\n  background-color: white;\n  color: #6C7A89;\n  border-radius: 2vw;\n  width: 30vw; }\n\n#form-message {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column; }\n  #form-message #button-submit {\n    background-color: white;\n    color: #6C7A89;\n    border-radius: 2vw;\n    width: 30vw;\n    margin: 1rem; }\n\n.pop-up-modal .header.span {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center; }\n", ""]);
+exports.push([module.i, ".ui.button:hover {\n  -webkit-transform: scale(1.007);\n          transform: scale(1.007);\n  background-color: #6C7A89;\n  color: white;\n  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }\n\n.ui.label {\n  background-color: #6C7A89;\n  color: white;\n  border-radius: 0.5vw;\n  border-color: white;\n  border-width: 0.1vw; }\n\n.bg-grey {\n  background-color: #6C7A89 !important; }\n\n.header {\n  height: 30%; }\n  .header span {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    margin: 3%;\n    color: white; }\n  .header .extra {\n    /*background-color: red;*/\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column; }\n    .header .extra .labels .meta {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center; }\n    .header .extra .meta {\n      font-size: 1vw;\n      color: white;\n      opacity: .5; }\n    .header .extra .labels {\n      margin: 0.5%; }\n\n.content .description {\n  margin: 2%; }\n  .content .description p {\n    color: white; }\n\n.content .skills {\n  margin: 2%; }\n\n.ui.form {\n  margin: 2% 12% 2% 12%; }\n\n.default-modal .actions {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center; }\n\n.default-modal #button-join {\n  background-color: white;\n  color: #6C7A89;\n  border-radius: 2vw;\n  width: 30vw; }\n\n#form-message {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column; }\n  #form-message #button-submit {\n    background-color: white;\n    color: #6C7A89;\n    border-radius: 2vw;\n    width: 30vw;\n    margin: 1rem; }\n\n.pop-up-modal .header.span {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center; }\n", ""]);
 
 // exports
 
